@@ -1,0 +1,5 @@
+## STARTED WITH PYTHON
+### PROJECT NUMBER 0
+# 0x00. Python - Hello, World
+
+> TO BE UPDATED LATER!
