@@ -52,7 +52,7 @@ int is_palindrome(listint_t **head)
 
 
 /**
- * reverse_list - Reverses a singly linked list.
+ * reverse_list - Helper function reverses a singly linked list.
  * @head: Pointer to the head of the linked list.
  *
  * Return: Pointer to the head of the reversed list.
