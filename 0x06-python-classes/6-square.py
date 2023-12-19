@@ -21,7 +21,7 @@ class Square:
         - position (tuple): The position of the square. Defaults to (0, 0).
         """
         self.size = size
-        self.__position = position
+        self.position = position
 
     @property
     def size(self):
