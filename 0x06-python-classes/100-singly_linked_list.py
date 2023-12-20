@@ -39,7 +39,7 @@ class Node:
     def next_node(self, value):
         """Set the reference to the next node."""
         if not isinstance(value, Node) and value is not None:
-            raise TypeError("next node must be a Node object")
+            raise TypeError("next_node must be a Node object")
         self._next_node = value
 
 
