@@ -24,9 +24,9 @@ class Square:
     def side_length(self, value):
         """Set the side length of the square."""
         if not isinstance(value, int):
-            raise TypeError("Side length must be an integer")
+            raise TypeError("size must be a number")
         elif value < 0:
-            raise ValueError("Side length must be >= 0")
+            raise ValueError("size must be >= 0")
         self._side_length = value
 
     def area(self):
