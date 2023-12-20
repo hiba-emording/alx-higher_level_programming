@@ -12,8 +12,8 @@ class Node:
         data (int): The data value of the node.
         next_node (Node): Reference to the next node. Defaults to None.
         """
-        self._data = data
-        self._next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
