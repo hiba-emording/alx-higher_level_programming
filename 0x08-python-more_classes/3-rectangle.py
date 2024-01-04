@@ -61,5 +61,7 @@ class Rectangle:
             return ''
         rect = ''
         for i in range(self.height):
-            rect += '#' * self.width + '\n'
+            rect += '#' * self.width
+            if i != self.height - 1:
+                rect += "\n"
         return rect
