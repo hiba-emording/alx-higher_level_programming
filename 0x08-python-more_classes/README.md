@@ -37,3 +37,5 @@ This directory contains Python scripts implementing a Rectangle class with vario
 * **9. A square is a rectangle**
   * `9-rectangle.py`: Introduces a class method to create a square Rectangle instance.
 
+* **10. N queens**
+  * `101-nqueens.py`: This script implements a class-based approach (`NQueens`) to solve the N-Queens problem using a backtracking algorithm.
