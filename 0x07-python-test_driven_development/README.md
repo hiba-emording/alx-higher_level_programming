@@ -1,4 +1,4 @@
 ## STARTED WITH PYTHON
-### PROJECT NUMBER 8
+### PROJECT NUMBER 7
 
 # 0x07. Python - Test-driven development
