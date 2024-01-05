@@ -11,8 +11,6 @@ class NQueens:
     """A class: NQueens"""
     def __init__(self, N):
         """A function to create a new board"""
-        if N < 4:
-            raise ValueError("N must be at least 4")
         self.N = N
         self.board = [[' ' for i in range(N)] for i in range(N)]
         self.result = []
@@ -93,6 +91,10 @@ if __name__ == "__main__":
 
     if not sys.argv[1].isdigit():
         print("N must be a number")
+        sys.exit(1)
+
+    if int(sys.argv[1]) < 4:
+        print("N must be at least 4")
         sys.exit(1)
 
     N = int(sys.argv[1])
