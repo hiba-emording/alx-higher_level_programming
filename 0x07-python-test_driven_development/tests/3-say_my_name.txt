@@ -1,0 +1,43 @@
+# File: tests/3-say_my_name.txt
+
+# MODULE: name_printer.py
+# DESCRIPTION: This module contains a function to print a name.
+
+# FUNCTION: say_my_name
+# DESCRIPTION:
+#   - Prints the first name and last name (if not provided, default='').
+#   - Raises TypeError if Args are not of type (str).
+
+# USAGE:
+#   - >>> say_my_name = __import__('3-say_my_name').say_my_name
+#   - >>> say_my_name(first_name, last_name)
+#     My name is <first name> <last name>
+
+# Test Cases:
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Group 1 (Valid Cases):
+# Case 1: Print first name and last name (str):
+>>> say_my_name("ALEXANDER", "HAMILTON")
+My name is ALEXANDER HAMILTON
+
+# Case 2: Print first name (str), no last name:
+>>> say_my_name("ALEXANDER")
+My name is ALEXANDER 
+
+#Group 2 (Edge Cases):
+# Case 3: Print first name (str), last name (not a str):
+>>> say_my_name("ALEXANDER", 10)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+# Case 4: Print first name (not a str), last name (str):
+>>> say_my_name({"A.L.E.X.A.N.D.E.R"}, "HAMILTON")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+# Case5: Print first name only (not a str):
+>>> say_my_name(2.4)
+Traceback (most recent call last):
+TypeError: first_name must be a string

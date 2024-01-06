@@ -1,0 +1,39 @@
+# File: tests/2-matrix_divided.txt
+
+# MODULE: matrix_operations.py
+# DESCRIPTION: This module contains a function to divide elements in a matrix.
+
+# FUNCTION: matrix_divided
+# DESCRIPTION:
+#   - Divides all elements of a matrix by a number. Takes 2 Args.
+#   - Returns a new matrix with elements divided by 'div',
+#       rounded to 2 decimal places.
+#   - Raises a TypeError if:
+#	is not a list of lists of integers or floats.
+#	rows of matrix are not of same size.
+#	div is not a number (int) or (float).
+#   - Raises a ZeroDivisionError if div is zero.
+
+# USAGE:
+#   - >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+#   - >>> matrix = []
+#   - >>> print(matrix_divided(matrix, div))
+#     result
+
+
+# Test Cases:
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Group 1 (Valid Cases):
+# Case 1: Valid input, divide by a non-zero number
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> print(matrix_divided(matrix, 2))
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+
+>>> matrix = [[1.0, 2.0, 3.0], [4, 5, 6], [7, 8, 9]]
+>>> print(matrix_divided(matrix, 2))
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+
+# Group 2 (Edge Cases):
