@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """
+Addition Function Module
 
-ADDITION FUNCTION
+This module provides functionality for adding two numbers.
 
+Functions:
+    add_integer(a, b=98):
+        Adds two integers or floats.
 """
 
 
