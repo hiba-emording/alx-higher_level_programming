@@ -1,0 +1,55 @@
+# FILE: tests/5-text_indentation.txt
+
+# MODULE: text_indentation.py
+# DESCRIPTION: This module contains a function to print text with extra newlines after encountering specific punctuation marks.
+
+# FUNCTION: text_indentation
+# DESCRIPTION:
+#   - Takes one argument 'text', a string.
+#   - Prints the text with two newlines after encountering '.', '?', ':' characters.
+#   - Raises a TypeError if 'text' is not a string.
+
+# USAGE:
+#   - >>> text_indentation = __import__('5-text_indentation').text_indentation
+#   - >>> text_indentation(text)
+#     # Output: Prints the text with additional newlines based on punctuation.
+
+# Test Cases:
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Group 1 (Valid Cases):
+# Case 1: Text with '.'
+>>> text_indentation("This is a test.")
+This is a test.
+<BLANKLINE>
+
+# Case 2: Text with '?'
+>>> text_indentation("Is this working?")
+Is this working?
+<BLANKLINE>
+
+# Case 3: Text with ':'
+>>> text_indentation("Let's see: it works.")
+Let's see:
+<BLANKLINE>
+it works.
+<BLANKLINE>
+
+# Case 4: Spaces - should not appear at the begining or end of line!
+>>> text_indentation(" Can you see me? ")
+Can you see me?
+<BLANKLINE>
+
+# Group 2 (Edge Cases):
+# Case 4: No punctuation
+>>> text_indentation("No punctuation here")
+No punctuation here
+
+# Case 5: Empty text
+>>> text_indentation("")
+
+# Case 6: Invalid type (not a string)
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string

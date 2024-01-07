@@ -5,7 +5,7 @@ Print Square Function Module
 This module provides functionality for printing a square of a given size by #.
 
 Functions:
-    def print_square(size):
+    print_square(size):
         Prints a square with the character '#'.
 """
 

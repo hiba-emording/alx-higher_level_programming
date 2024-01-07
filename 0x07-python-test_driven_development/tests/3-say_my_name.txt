@@ -28,16 +28,21 @@ My name is ALEXANDER
 
 #Group 2 (Edge Cases):
 # Case 3: Print first name (str), last name (not a str):
->>> say_my_name("ALEXANDER", 10)
+>>> say_my_name("ALEXANDER", 1800)
 Traceback (most recent call last):
 TypeError: last_name must be a string
 
 # Case 4: Print first name (not a str), last name (str):
->>> say_my_name({"A.L.E.X.A.N.D.E.R"}, "HAMILTON")
+>>> say_my_name(["A.Burr", "A.HAM"], "HAMILTON")
 Traceback (most recent call last):
 TypeError: first_name must be a string
 
 # Case5: Print first name only (not a str):
->>> say_my_name(2.4)
+>>> say_my_name(17.89)
 Traceback (most recent call last):
 TypeError: first_name must be a string
+
+# Case6: No Argument:
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
