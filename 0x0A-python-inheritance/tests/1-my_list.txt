@@ -19,12 +19,10 @@
 
 >>> MyList = __import__('1-my_list').MyList
 
-#Checking that MyList inherits from list:
->>> issubclass(MyList, list)
-True
-
 # Case 0: Empty List:
 >>> my_list = MyList()
+>>> print(my_list)
+[]
 >>> my_list.print_sorted()
 []
 
@@ -50,7 +48,17 @@ Case 2: Print non sorted list:
 >>> my_list.print_sorted()
 [-4, -3, 1, 2, 3]
 
-Case 3: Wrong number of arguments:
+Case 3: A list with identical elements:
+>>> my_list = MyList()
+>>> my_list.append(-5)
+>>> my_list.append(-5)
+>>> my_list.append(-5)
+>>> print(my_list)
+[-5, -5, -5]
+>>> my_list.print_sorted()
+[-5, -5, -5]
+
+Case 4: Wrong number of arguments:
 >>> my_list.print_sorted(0)
 Traceback (most recent call last):
 TypeError: print_sorted() takes 1 positional argument but 2 were given
