@@ -19,6 +19,10 @@
 
 >>> MyList = __import__('1-my_list').MyList
 
+#Checking that MyList inherits from list:
+>>> issubclass(MyList, list)
+True
+
 # Case 0: Empty List:
 >>> my_list = MyList()
 >>> my_list.print_sorted()
