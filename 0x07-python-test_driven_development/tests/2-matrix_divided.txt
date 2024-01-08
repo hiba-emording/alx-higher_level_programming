@@ -35,35 +35,51 @@
 >>> print(matrix_divided(matrix, 2))
 [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
 
+# Case 2: Divide by infinity
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> print(matrix_divided(matrix, float('inf')))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
 # Group 2 (Edge Cases):
-# Case 2: Matrix with non-integer/float values
+# Case 3: Matrix with non-integer/float values
 >>> matrix = [[1, 2, 'a'], [4, 5, 6], [7, 8, 9]]
 >>> print(matrix_divided(matrix, 2))
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-# Case 3: Matrix with rows of different sizes
+# Case 4: Matrix with rows of different sizes
 >>> matrix = [[1, 2, 3], [4, 5], [7, 8, 9]]
 >>> print(matrix_divided(matrix, 2))
 Traceback (most recent call last):
 TypeError: Each row of the matrix must have the same size
 
-# Case 4: Dividing by zero
+# Case 5: Dividing by zero
 >>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 >>> print(matrix_divided(matrix, 0))
 Traceback (most recent call last):
 ZeroDivisionError: division by zero
 
-# Case 5: Dividing by a string (non-numeric value)
+# Case 6: Dividing by a string (non-numeric value)
 >>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 >>> print(matrix_divided(matrix, 'invalid'))
 Traceback (most recent call last):
 TypeError: div must be a number
 
-# Case 6: Matrix must left unchanged
+# Case 7: Matrix must left unchanged
 >>> matrix = [[2, 2, 2], [2, 2, 2], [2, 2, 2]]
 >>> print(matrix_divided(matrix, 2))
 [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
 >>> print(matrix)
 [[2, 2, 2], [2, 2, 2], [2, 2, 2]]
+
+# Case 8: Missing one argument (div)
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> print(matrix_divided(matrix))
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+# Case 9: Missing both arguments
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> print(matrix_divided())
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

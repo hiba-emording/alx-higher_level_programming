@@ -84,3 +84,13 @@ TypeError: a must be an integer
 >>> add_integer("try", "maybe")
 Traceback (most recent call last):
 TypeError: a must be an integer
+
+# Case 7: Float Overflow (inf)
+>>> add_integer(7, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+# Case 8: Nan conversion
+>>> add_integer(7, float('nan'))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
