@@ -47,6 +47,8 @@ Case 2: Print non sorted list:
 [2, -3, 1, -4, 3]
 >>> my_list.print_sorted()
 [-4, -3, 1, 2, 3]
+>>> print(my_list)
+[2, -3, 1, -4, 3]
 
 Case 3: A list with identical elements:
 >>> my_list = MyList()
