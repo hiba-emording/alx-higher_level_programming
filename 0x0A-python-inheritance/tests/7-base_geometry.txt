@@ -1,0 +1,45 @@
+# FILE: tests/7-base_geometry.txt
+
+# MODULE: 7-base_geometry.py
+# DESCRIPTION: This module contains the BaseGeometry class with area() and integer_validator() methods.
+
+# CLASS: BaseGeometry
+# DESCRIPTION:
+#   - Represents a class: BaseGeometry.
+#   - Contains methods area() and integer_validator().
+
+# USAGE:
+#   - >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+#   - >>> BaseGeometry()
+
+# Test Cases:
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Case 0: Testing area() method without implementation:
+>>> BaseGeometry()
+>>> BaseGeometry.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+# Case 1: Testing integer_validator() method with valid input:
+>>> BaseGeometry()
+>>> BaseGeometry.integer_validator("test", 9)
+
+# Case 2: Testing integer_validator() method with invalid input (non-integer):
+>>> BaseGeometry()
+>>> BaseGeometry.integer_validator("test", "nine")
+Traceback (most recent call last):
+TypeError: invalid number must be an integer
+
+# Case 3: Testing integer_validator() method with invalid input (zero):
+>>> BaseGeometry()
+>>> BaseGeometry.integer_validator("test", "0")
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
+
+# Case 4: Testing integer_validator() method with invalid input (negative integer):
+>>> BaseGeometry()
+>>> BaseGeometry.integer_validator("test", "-9")
+Traceback (most recent call last):
+ValueError: invalid int must be greater than 0
