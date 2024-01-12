@@ -5,6 +5,7 @@ Defines Base Class
 Manages id attr in all subclasses
 """
 from json import *
+from csv import *
 
 
 class Base:
@@ -67,5 +68,49 @@ class Base:
                 json_string = f.read()
                 dictionary_list = cls.from_json_string(json_string)
                 return [cls.create(**d) for d in dictionary_list]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """a function for serialiazation in CVS"""
+        file_name = "{}.cvs".format(cls.__name__)
+
+        with open(file_name, 'w', newline='') as f:
+            csv_writer = writer(f)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csv_writer.writerow(
+                            [obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif cls.__name__ == "Square":
+                    csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """a function for deserialiazation in CVS"""
+        file_name = "{}.cvs".format(cls.__name__)
+
+        try:
+            with open(file_name, 'r', newline='') as f:
+                csv_reader = reader(f)
+                instances = []
+                for row in csv_reader:
+                    if cls.__name__ == "Rectangle":
+                        obj = cls.create(
+                                id=int(row[0]),
+                                width=int(row[1]),
+                                height=int(row[2]),
+                                x=int(row[3]),
+                                y=int(row[4])
+                                )
+                    elif cls.__name__ == "Square":
+                        obj = cls.create(
+                                id=int(row[0]),
+                                size=int(row[1]),
+                                x=int(row[2]),
+                                y=int(row[3])
+                                )
+                    instances.append(obj)
+                return instances
         except FileNotFoundError:
             return []
