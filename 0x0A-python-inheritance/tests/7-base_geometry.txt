@@ -9,37 +9,59 @@
 #   - Contains methods area() and integer_validator().
 
 # USAGE:
-#   - >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-#   - >>> BaseGeometry()
+#   - >>> BG = __import__("7-base_geometry").BaseGeometry
 
 # Test Cases:
+>>> BG = __import__("7-base_geometry").BaseGeometry
 
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-# Case 0: Testing area() method without implementation:
->>> BaseGeometry()
->>> BaseGeometry.area()
+# Checking for area failure:
+>>> obj = BG()
+>>> obj.area()
 Traceback (most recent call last):
+  ...
 Exception: area() is not implemented
 
-# Case 1: Testing integer_validator() method with valid input:
->>> BaseGeometry()
->>> BaseGeometry.integer_validator("test", 9)
+# Checking integer validator for passing integer:
+>>> obj = BG()
+>>> obj.integer_validator("valid_integer", 1)
 
-# Case 2: Testing integer_validator() method with invalid input (non-integer):
->>> BaseGeometry()
->>> BaseGeometry.integer_validator("test", "nine")
+# Checking for integer < 0;
+>>> obj = BG()
+>>> obj.integer_validator("negative_integer", -4)
 Traceback (most recent call last):
-TypeError: invalid number must be an integer
+  ...
+ValueError: negative_integer must be greater than 0
 
-# Case 3: Testing integer_validator() method with invalid input (zero):
->>> BaseGeometry()
->>> BaseGeometry.integer_validator("test", "0")
+# Checking for non-integer types:
+>>> obj = BG()
+>>> obj.integer_validator("bool_value", True)
 Traceback (most recent call last):
-ValueError: invalid int must be greater than 0
+  ...
+TypeError: bool_value must be an integer
 
-# Case 4: Testing integer_validator() method with invalid input (negative integer):
->>> BaseGeometry()
->>> BaseGeometry.integer_validator("test", "-9")
+>>> obj = BG()
+>>> obj.integer_validator("float_value", 1.5)
 Traceback (most recent call last):
-ValueError: invalid int must be greater than 0
+  ...
+TypeError: float_value must be an integer
+
+>>> obj = BG()
+>>> obj.integer_validator("string_value", "hello")
+Traceback (most recent call last):
+  ...
+TypeError: string_value must be an integer
+
+# Checking for no arguments to integer_validator:
+>>> obj = BG()
+>>> obj.integer_validator()
+Traceback (most recent call last):
+  ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+# Checking for only 1 argument to integer_validator:
+>>> obj = BG()
+>>> obj.integer_validator("single_arg")
+Traceback (most recent call last):
+  ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
