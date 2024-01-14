@@ -68,13 +68,14 @@ class Base:
                 json_string = f.read()
                 dictionary_list = cls.from_json_string(json_string)
                 return [cls.create(**d) for d in dictionary_list]
-        except FileNotFoundError:
+        except IOError:
             return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """a function for serialiazation in CVS"""
-        file_name = "{}.cvs".format(cls.__name__)
+        file_name = "{}.csv".format(cls.__name__)
+        print("Saving to file:", file_name)
 
         with open(file_name, 'w', newline='') as f:
             csv_writer = writer(f)
@@ -88,7 +89,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """a function for deserialiazation in CVS"""
-        file_name = "{}.cvs".format(cls.__name__)
+        file_name = "{}.csv".format(cls.__name__)
 
         try:
             with open(file_name, 'r', newline='') as f:
@@ -112,5 +113,5 @@ class Base:
                                 )
                     instances.append(obj)
                 return instances
-        except FileNotFoundError:
+        except IOError:
             return []
