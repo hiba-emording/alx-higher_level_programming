@@ -75,7 +75,6 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """a function for serialiazation in CVS"""
         file_name = "{}.csv".format(cls.__name__)
-        print("Saving to file:", file_name)
 
         with open(file_name, 'w', newline='') as f:
             csv_writer = writer(f)
