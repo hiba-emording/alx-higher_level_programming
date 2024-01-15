@@ -5,8 +5,8 @@ Defines Base Class
 
 Manages id attr in all subclasses
 """
-from json import *
-from csv import *
+import json
+import csv
 
 
 class Base:
@@ -27,7 +27,7 @@ class Base:
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         else:
-            return dumps(list_dictionaries)
+            return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -47,7 +47,7 @@ class Base:
         if json_string is None or json_string == []:
             return "[]"
         else:
-            return loads(json_string)
+            return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -79,7 +79,7 @@ class Base:
         file_name = "{}.csv".format(cls.__name__)
 
         with open(file_name, 'w', newline='') as f:
-            csv_writer = writer(f)
+            csv_writer = csv.writer(f)
             for obj in list_objs:
                 if cls.__name__ == "Rectangle":
                     csv_writer.writerow(
@@ -94,7 +94,7 @@ class Base:
 
         try:
             with open(file_name, 'r', newline='') as f:
-                csv_reader = reader(f)
+                csv_reader = csv.reader(f)
                 instances = []
                 for row in csv_reader:
                     if cls.__name__ == "Rectangle":
