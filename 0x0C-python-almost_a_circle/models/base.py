@@ -44,12 +44,11 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """returns the list of the JSON string representation json_string"""
-        if json_string is None or json_string == []:
-            return "[]"
-        else:
-            if type(json_string) != str:
-                raise TypeError("json_string must be a string")
-            return json.loads(json_string)
+        json_string_list = []
+
+        if json_string is not None and json_string != '':
+            json_string_list = json.loads(json_string)
+        return json_string_list
 
     @classmethod
     def create(cls, **dictionary):
