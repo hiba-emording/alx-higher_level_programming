@@ -92,19 +92,28 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """args and kwargs order"""
         if args:
-            return
-
-        for key, value in kwargs.items():
-            if key == 'id':
-                self.id = value
-            elif key == 'width':
-                self.width = value
-            elif key == 'height':
-                self.height = value
-            elif key == 'x':
-                self.x = value
-            elif key == 'y':
-                self.y = value
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'width':
+                    self.width = value
+                elif key == 'height':
+                    self.height = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
 
     def to_dictionary(self):
         """returns dectionary representation of Rectangle"""
