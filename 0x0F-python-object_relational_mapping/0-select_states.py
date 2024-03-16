@@ -4,8 +4,13 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    connection = MySQLdb.connect(host="localhost", user=sys.argv[1],
-                                 password=sys.argv[2], database=sys.argv[3], port=3306)
+    connection = MySQLdb.connect(
+            host="localhost",
+            user=sys.argv[1],
+            password=sys.argv[2],
+            database=sys.argv[3],
+            port=3306
+            )
     cursor = connection.cursor()
 
     cursor.execute("SELECT * FROM states")
